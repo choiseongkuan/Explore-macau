@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>發現中小企</title>
+    <link href="https://fonts.googleapis.com/css?family=Helvetica">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <router-link :to="{name : 'home'}">
+                <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.87 47"><defs></defs><title>logo</title><path id="Path_214" data-name="Path 214" class="cls-1" d="M94.22,38.12V27.21h-4.4V38.39c0,3.37-1.2,5.08-3.58,5.08a3,3,0,0,1-2.6-1.28,6.61,6.61,0,0,1-.93-3.81V27.21H78.32V38.07C78.32,44,80.93,47,86.09,47a7.85,7.85,0,0,0,6-2.18A9.32,9.32,0,0,0,94.22,38.12Z" transform="translate(0.08 0)"/><path id="Path_215" data-name="Path 215" class="cls-1" d="M52.83,30.53a9.38,9.38,0,0,1,3.7.72l.92-3.47a10.94,10.94,0,0,0-4.79-.87,11.08,11.08,0,0,0-7.52,2.67A10,10,0,0,0,42,37.23a9.71,9.71,0,0,0,2.56,7A10.38,10.38,0,0,0,52.22,47h0a13,13,0,0,0,5-.84l-.64-3.46a10.63,10.63,0,0,1-3.7.64,6.19,6.19,0,0,1-4.57-1.71A6.53,6.53,0,0,1,46.64,37a6.52,6.52,0,0,1,1.78-4.84A6.2,6.2,0,0,1,52.83,30.53Z" transform="translate(0.08 0)"/><path id="Path_216" data-name="Path 216" class="cls-1" d="M14.59,27.21l-2.05,6.47c-.61,2-1.27,4.47-1.85,7h-.12c-.43-2.24-1-4.65-1.64-7L7,27.21H1.16L-.08,46.68H4l.38-7.39c.11-2.26.23-5.27.32-8.06h.07c.5,2.61,1.14,5.39,1.76,7.62L8.6,46.36H12l2.37-7.6c.76-2.31,1.57-5.06,2.19-7.53h.06c0,2.92.09,5.81.17,8l.32,7.45h4.27L20.36,27.2Z" transform="translate(0.08 0)"/><path id="Path_217" data-name="Path 217" class="cls-1" d="M64.93,27.21,59,46.67h4.53l1.38-5h5.57l1.51,5h4.76L70.7,27.21Zm.64,11.17,1.15-4.13c.19-.67.37-1.48.55-2.26.12-.53.23-1,.35-1.49h.06l.15.6c.25,1,.54,2.19.83,3.15l1.21,4.13Z" transform="translate(0.08 0)"/><path id="Path_218" data-name="Path 218" class="cls-1" d="M29.23,27.21,23.31,46.67h4.53l1.38-5h5.57l1.51,5h4.76L35,27.21Zm.64,11.17L31,34.25c.19-.67.37-1.48.55-2.26.12-.53.23-1,.35-1.49H32l.16.63c.25,1,.54,2.17.83,3.13l1.21,4.13Z" transform="translate(0.08 0)"/><path id="Subtraction_8" data-name="Subtraction 8" class="cls-2" d="M71.8,20.13a8.66,8.66,0,0,1-6.73-2.88,10.66,10.66,0,0,1-2.43-7,10.71,10.71,0,0,1,2.59-7.28A9,9,0,0,1,72.11,0,8.76,8.76,0,0,1,79,2.92a10.55,10.55,0,0,1,2.38,7,10.65,10.65,0,0,1-2.64,7.53A9.21,9.21,0,0,1,71.8,20.13ZM67.74,3.34a.6.6,0,0,0-.36.12.61.61,0,0,0-.25.68l2.08,7.46a.53.53,0,0,0,.13.23.47.47,0,0,0,.18.19l6.3,4.5a.64.64,0,0,0,.88-.14.59.59,0,0,0,.09-.53L74.71,8.39a.53.53,0,0,0-.13-.23A.47.47,0,0,0,74.4,8l-6.3-4.5A.53.53,0,0,0,67.74,3.34ZM88.6,19.81H84.24V.61A38.3,38.3,0,0,1,90.1.21c3,0,5,.47,6.3,1.53a4.91,4.91,0,0,1,1.82,4.1,5.14,5.14,0,0,1-3.44,4.76v.09c1.26.5,2,1.62,2.6,3.61.18.66.36,1.34.53,2h0a26.5,26.5,0,0,0,1,3.5h-4.5a25.82,25.82,0,0,1-1.33-4.53A4.65,4.65,0,0,0,92,12.81a2.88,2.88,0,0,0-2.07-.65H88.6v7.65Zm2-16.32a9.43,9.43,0,0,0-2,.15V9h1.73c2.16,0,3.5-1.07,3.5-2.8a2.42,2.42,0,0,0-.86-2,3.79,3.79,0,0,0-2.38-.68ZM19,19.81H14L19.58,10,14.15.34h5l1.7,3.55c.57,1.16,1,2.13,1.47,3.24h.06c.45-1.21.8-2,1.33-3.24L25.4.34h5l-5.48,9.5,5.78,10H25.65l-1.76-3.52c-.54-1-.95-1.86-1.33-2.67h0l-.39-.81H22.1c-.36,1-.78,1.88-1.31,3l-.22.47Zm94.82,0H101.4V.35h12V4h-7.6V8h7.16v3.58h-7.16V16.2h8v3.61ZM62,19.81H49.9V.35h4.4V16.12H62v3.69Zm-24.57,0H33.1V.61a35.92,35.92,0,0,1,5.95-.4,9.3,9.3,0,0,1,6,1.56,5.59,5.59,0,0,1,2.08,4.51,6.14,6.14,0,0,1-1.79,4.62A9.17,9.17,0,0,1,39,13a7.69,7.69,0,0,1-1.51-.12v7ZM39.25,3.55a8.27,8.27,0,0,0-1.79.14V9.44a7.24,7.24,0,0,0,1.47.12,4.26,4.26,0,0,0,2.76-.84,2.91,2.91,0,0,0,1-2.31c0-1.81-1.25-2.86-3.45-2.86ZM12.39,19.81H0V.35H12V4H4.4V8h7.16v3.58H4.4V16.2h8v3.61ZM75.5,15h0l-5.43-3.72,3.79-2.65L75.5,15Z" transform="translate(0.08 0)"/></svg>
+            </router-link>
+        </header>
+        <main>
+            <router-view></router-view>
+        </main>
+            <router-view name="addClass"></router-view>
+            <router-view name="addEnt"></router-view>
+    </div>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/vue.js"></script>
+    <script src="./js/vue-router.js"></script>
+    <script src="./js/vuex.js"></script>
+    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</body>
+</html>
