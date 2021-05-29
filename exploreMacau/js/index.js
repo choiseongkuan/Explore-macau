@@ -1,4 +1,4 @@
-//一開始沒使用vue loader做到後期才發現組件複用嚴重，所以，以下大部分template都大量重複
+
 const listItem = Vue.component('listItem',{
     template: `
     <div>
